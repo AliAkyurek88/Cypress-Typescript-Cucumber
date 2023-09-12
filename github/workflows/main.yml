@@ -12,6 +12,11 @@ jobs:
         uses: cypress-io/github-action@v5
               
       - uses: actions/upload-artifact@v3
+       env:
+          DEBUG: "cypress:*"
+        with:
+          # start: npm start
+          command: npx cypress run
         if: failure()
         with:
           name: cypress-screenshots
