@@ -1,5 +1,5 @@
-name: Automation exercise tests
-on: push
+name: End-to-end tests
+on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
@@ -10,13 +10,13 @@ jobs:
       # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v5
-              
-      - uses: actions/upload-artifact@v3
-       env:
-          DEBUG: "cypress:*"
         with:
-          # start: npm start
-          command: npx cypress run
+         working-directory: typescript
+         install-command: npm install
+         build: npm build
+         start: npm start
+              
+   
         if: failure()
         with:
           name: cypress-screenshots
