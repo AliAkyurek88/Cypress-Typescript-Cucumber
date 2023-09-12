@@ -18,7 +18,7 @@ jobs:
               
    
         if: failure()
-        with:
+      
           name: cypress-screenshots
           path: cypress/screenshots
       # Test run video was always captured, so this action uses "always()" condition
