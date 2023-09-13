@@ -27,5 +27,7 @@ export default defineConfig({
   e2e: {
     specPattern: "**/*.feature",
     setupNodeEvents,
+    experimentalRunAllSpecs: true
   },
+  
 });
