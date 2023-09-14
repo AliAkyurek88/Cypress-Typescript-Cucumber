@@ -22,6 +22,7 @@ async function setupNodeEvents(
 }
 
 export default defineConfig({
+  projectId: "fm5rs1",
   viewportHeight:1080,
   viewportWidth:1920,
   e2e: {
@@ -29,6 +30,5 @@ export default defineConfig({
     specPattern: "**/*.feature",
     setupNodeEvents,
     experimentalRunAllSpecs: true
-  },
-  
+  },  
 });
