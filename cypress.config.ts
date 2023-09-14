@@ -26,10 +26,10 @@ export default defineConfig({
   viewportHeight:1080,
   viewportWidth:1920,
   e2e: {
-    pageLoadTimeout:80000,
-    defaultCommandTimeout: 10000,
+   
+    experimentalRunAllSpecs:true,
     specPattern: "**/*.feature",
     setupNodeEvents,
-    experimentalRunAllSpecs: true
+   
   },  
 });
