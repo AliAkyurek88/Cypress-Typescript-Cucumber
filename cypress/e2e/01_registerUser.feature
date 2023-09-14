@@ -2,7 +2,7 @@ Feature: Register User
 
     Scenario: Go to automationexercise.com and register user
 
-       Given Navigate to url "http://automationexercise.com"
+       Given Navigate to url "https://automationexercise.com"
        When Verify that home page is visible successfully
        When Click on "Signup / Login" button
        When Verify "New User Signup!" is visible
