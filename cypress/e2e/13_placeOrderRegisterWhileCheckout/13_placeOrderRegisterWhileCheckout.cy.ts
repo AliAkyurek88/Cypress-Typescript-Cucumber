@@ -71,7 +71,7 @@ When(/^Enter payment details: Name on Card, Card Number, CVC, Expiration date$/,
 });
 
 When(/^Click "([^"]*)" button and Verify success message "([^"]*)"$/, (containButton: string, containDesc: string) => {
-
+    cy.log("xxx");
 });
 
 
