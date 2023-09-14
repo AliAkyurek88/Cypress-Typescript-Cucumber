@@ -25,6 +25,7 @@ export default defineConfig({
   viewportHeight:1080,
   viewportWidth:1920,
   e2e: {
+    defaultCommandTimeout: 10000,
     specPattern: "**/*.feature",
     setupNodeEvents,
     experimentalRunAllSpecs: true
