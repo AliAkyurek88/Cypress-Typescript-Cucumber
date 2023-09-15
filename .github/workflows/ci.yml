@@ -13,13 +13,15 @@ jobs:
         uses: cypress-io/github-action@v5
         with: 
          node-version: 16
-      - name: Generate report
-        run: cd cypress && npm run cy:report
-      - name: Upload report
+      - name: Generate Cucumber Reports
+        run: npm run cypress-cucumber-reports 
+      # Cypress Cucumber raporlarını oluşturmak için kullanılan komut
+   
+      - name: Upload Reports
         uses: actions/upload-artifact@v2
         with:
-           name: cypress-cucumber-report
-           path: cypress/reports
+           name: cypress-reports
+           path: cypress/reports/cucumber-json
       # after the test run completes
       # store videos and any screenshots
       # NOTE: screenshots will be generated only if E2E test failed
