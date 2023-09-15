@@ -13,6 +13,13 @@ jobs:
         uses: cypress-io/github-action@v5
         with: 
          node-version: 16
+      - name: Uploading artifact
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+           name: cypress-execution-report
+           path: cypress/reports/html
+           retention-days: 30   
       # after the test run completess
       # store videos and any screenshots
       # NOTE: screenshots will be generated only if E2E test failed
