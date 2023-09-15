@@ -13,6 +13,11 @@
     "@cypress/browserify-preprocessor": "^3.0.2",
     "cypress": "^12.17.3",
     "cypress-xpath": "^2.0.1",
+    "multiple-cucumber-html-reporter": "^3.5.0",
     "typescript": "^5.1.6"
+  },
+  "json":{
+    "enabled":true,
+    "formatter":"./cucumber-json-formatter"
   }
 }

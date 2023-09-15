@@ -25,11 +25,11 @@ export default defineConfig({
   projectId: "fm5rs1",
   viewportHeight:1080,
   viewportWidth:1920,
+  
   e2e: {
    
-    experimentalRunAllSpecs:true,
     specPattern: "**/*.feature",
     setupNodeEvents,
-   
   },  
 });
+
