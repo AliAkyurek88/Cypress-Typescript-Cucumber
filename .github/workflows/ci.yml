@@ -1,42 +1,45 @@
-name: End-to-end tests
-on: [push]
+name: Cypress Cucumber Reports
+
+on:
+  push:
+    branches:
+      - main # Ana dalınıza göre değiştirin
+
 jobs:
-  cypress-run:
-    runs-on: ubuntu-22.04
+  cypress:
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
-      # https://github.com/cypress-io/github-action
-      - name: Cypress run
-        uses: cypress-io/github-action@v5
-        with: 
-         node-version: 16
-      - name: Generate Cucumber Reports
-        run: npm run cypress-cucumber-reports 
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16' # Kullanmak istediğiniz Node.js sürümünü seçin
+
+    - name: Install Dependencies
+      run: |
+        npm ci
+
+    - name: Run Cypress Tests
+      run: |
+        npm run cypress:run 
+      # Cypress testlerinizi çalıştırmak için kullanılan komut
+
+    - name: Generate Cucumber Reports
+      run: |
+        npm run cypress-cucumber-reports 
       # Cypress Cucumber raporlarını oluşturmak için kullanılan komut
-   
-      - name: Upload Reports
-        uses: actions/upload-artifact@v2
-        with:
-           name: cypress-reports
-           path: cypress/reports/cucumber-json
-      # after the test run completes
-      # store videos and any screenshots
-      # NOTE: screenshots will be generated only if E2E test failed
-      # thus we store screenshots only on failures
-      # Alternative: create and commit an empty cypress/screenshots folder
-      # to always have something to upload
-      
-      - uses: actions/upload-artifact@v3
-        if: failure()
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-      # Test run video was always captured, so this action uses "always()" condition
-      - uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: cypress-videos
-          path: cypress/videos
+
+    - name: Upload Reports
+      uses: actions/upload-artifact@v2
+      with:
+        name: cypress-reports
+        path: cypress/reports/cucumber-json
+
+    - name: Upload Screenshots
+      uses: actions/upload-artifact@v2
+      with:
+        name: cypress-screenshots
+        path: cypress/screenshots
