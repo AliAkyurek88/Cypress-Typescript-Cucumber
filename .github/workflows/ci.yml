@@ -13,7 +13,7 @@ jobs:
         uses: cypress-io/github-action@v5
         with: 
          node-version: 16
-      # after the test run completes
+      # after the test run completess
       # store videos and any screenshots
       # NOTE: screenshots will be generated only if E2E test failed
       # thus we store screenshots only on failures
